@@ -1,0 +1,1 @@
+export default function NotFound() { return <main className="not-found"><p className="eyebrow">404 / OFF THE GRID</p><h1>This route doesn’t exist.</h1><a className="button primary" href="/">BACK TO THE PORTFOLIO ↗</a></main>; }

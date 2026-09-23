@@ -1,0 +1,337 @@
+{
+  "name": "Ashwin Issac Shaji",
+  "firstName": "Ashwin",
+  "role": "UI/UX & Graphic Designer | Frontend Development | Digital Marketing",
+  "bio": "I connect thoughtful design with responsive development. From interfaces and interactive prototypes to digital and print campaigns, I turn ideas into clear, cohesive experiences. My work spans design roles in India and freelance projects in Dublin, supported by a background in computer applications and digital marketing.",
+  "location": "India · Open to relocation to Ireland",
+  "email": "aisthedesigner@gmail.com",
+  "phone": "+91 8281422324",
+  "resumeUrl": "/ashwin-resume.pdf",
+  "available": true,
+  "spokenLanguages": [
+    "English · Fluent",
+    "Malayalam · Native",
+    "Tamil"
+  ],
+  "strengths": [
+    {
+      "title": "Design with intent",
+      "description": "Wireframes, user research and interactive prototypes that connect a brief to a usable interface."
+    },
+    {
+      "title": "Build for every screen",
+      "description": "Responsive interfaces with React, JavaScript, HTML, CSS, Bootstrap and WordPress."
+    },
+    {
+      "title": "Keep the story consistent",
+      "description": "Brand-aligned visuals, social content and on-page SEO across digital and print touchpoints."
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Professional roles",
+      "value": 6
+    },
+    {
+      "label": "Academic qualifications",
+      "value": 3
+    },
+    {
+      "label": "Meta courses",
+      "value": 6
+    }
+  ],
+  "skills": {
+    "UI/UX Design": [
+      "Figma",
+      "Adobe XD",
+      "Wireframing",
+      "Prototyping",
+      "User research",
+      "Responsive interface design"
+    ],
+    "Graphic Design": [
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "Digital & print materials",
+      "Brand consistency",
+      "Social media graphics"
+    ],
+    "Languages": [
+      "JavaScript (ES6+)",
+      "HTML5",
+      "CSS3",
+      "Java"
+    ],
+    "Frontend": [
+      "React",
+      "Bootstrap",
+      "WordPress"
+    ],
+    "Digital Marketing": [
+      "Social media marketing",
+      "Content strategy",
+      "On-page SEO",
+      "Keyword optimisation"
+    ],
+    "Development Tools": [
+      "Git",
+      "Version control"
+    ]
+  },
+  "journey": [
+    {
+      "id": "integfarms",
+      "kind": "work",
+      "title": "Editor — Social Media Marketing",
+      "organization": "Integfarms MY Health School Pvt Ltd",
+      "period": "Jun 2025 — Present",
+      "sortDate": "2025-06-01",
+      "location": "Chennai, India",
+      "details": [
+        "Design digital and print marketing materials, maintaining consistent branding across platforms.",
+        "Translate client requirements into visual content for marketing campaigns.",
+        "Create campaign graphics to support social media marketing and customer engagement.",
+        "Support web application development alongside graphic design and social media marketing."
+      ],
+      "current": true
+    },
+    {
+      "id": "freelance",
+      "kind": "work",
+      "title": "Freelance Graphic Designer — Social Media Marketing",
+      "organization": "Independent practice",
+      "period": "Sep 2022 — Mar 2025",
+      "sortDate": "2022-09-01",
+      "location": "Dublin, Ireland",
+      "details": [
+        "Created digital and print marketing materials for client projects.",
+        "Worked directly with clients to understand briefs and develop designs aligned with their brand and marketing goals.",
+        "Produced graphics for digital campaigns and social media, maintaining visual consistency across deliverables."
+      ],
+      "current": false
+    },
+    {
+      "id": "dbs",
+      "kind": "education",
+      "title": "Higher Diploma in Digital Marketing",
+      "organization": "Dublin Business School",
+      "period": "2022 — 2023",
+      "sortDate": "2022-01-01",
+      "location": "Dublin, Ireland",
+      "details": [],
+      "current": false
+    },
+    {
+      "id": "winnersoft",
+      "kind": "work",
+      "title": "UI/UX Designer",
+      "organization": "Winnersoft IT Solutions",
+      "period": "May 2020 — Jul 2021",
+      "sortDate": "2020-05-01",
+      "location": "Kerala, India",
+      "details": [
+        "Designed website layouts and user interfaces based on client requirements.",
+        "Collaborated with marketing teams to implement on-page SEO improvements.",
+        "Built custom WordPress themes and plugins to support website functionality.",
+        "Created digital and print graphics aligned with client brand identities."
+      ],
+      "current": false
+    },
+    {
+      "id": "techbox",
+      "kind": "work",
+      "title": "UI/UX Designer",
+      "organization": "Techbox Solutions",
+      "period": "Jul 2019 — Apr 2020",
+      "sortDate": "2019-07-01",
+      "location": "Coimbatore, India",
+      "details": [
+        "Developed wireframes and interactive prototypes using Figma and Adobe XD.",
+        "Implemented responsive website designs using HTML, CSS, Bootstrap and JavaScript.",
+        "Collaborated with editorial teams to optimise website content for search engines.",
+        "Designed visual assets for digital marketing campaigns."
+      ],
+      "current": false
+    },
+    {
+      "id": "mca",
+      "kind": "education",
+      "title": "Master of Computer Applications (MCA)",
+      "organization": "MACFAST",
+      "period": "2017 — 2019",
+      "sortDate": "2017-01-01",
+      "location": "Thiruvalla, India",
+      "details": [],
+      "current": false
+    },
+    {
+      "id": "mgs",
+      "kind": "work",
+      "title": "Graphic Designer",
+      "organization": "MGS Graphics",
+      "period": "Sep 2015 — Aug 2017",
+      "sortDate": "2015-09-01",
+      "location": "Kerala, India",
+      "details": [
+        "Produced print and digital marketing materials in line with client briefs.",
+        "Collaborated with clients to develop designs that reflected their visual identity and communication needs."
+      ],
+      "current": false
+    },
+    {
+      "id": "spectrum",
+      "kind": "work",
+      "title": "Java Developer Intern",
+      "organization": "Spectrum Softtech Solutions Pvt. Ltd.",
+      "period": "May 2015 — Jul 2015",
+      "sortDate": "2015-05-01",
+      "location": "Kerala, India",
+      "details": [
+        "Assisted with the development and testing of Java applications."
+      ],
+      "current": false
+    },
+    {
+      "id": "bsc",
+      "kind": "education",
+      "title": "BSc in Computer Science",
+      "organization": "IHRD College of Applied Science",
+      "period": "2012 — 2015",
+      "sortDate": "2012-01-01",
+      "location": "Payyapady, India",
+      "details": [],
+      "current": false
+    }
+  ],
+  "projects": [
+    {
+      "id": "responsive-interfaces",
+      "name": "Interfaces with intent",
+      "category": "UI/UX · Techbox Solutions",
+      "description": "Wireframes and interactive prototypes translated into responsive websites during my UI/UX role at Techbox Solutions.",
+      "stack": [
+        "Figma",
+        "Adobe XD",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Bootstrap"
+      ],
+      "highlights": [
+        "Interactive prototypes",
+        "Responsive website implementation",
+        "Search-aware content collaboration"
+      ]
+    },
+    {
+      "id": "wordpress",
+      "name": "From layout to launch",
+      "category": "Web design · Winnersoft IT Solutions",
+      "description": "Client-led website layouts, custom WordPress themes and plugins, and on-page SEO improvements.",
+      "stack": [
+        "WordPress",
+        "UI design",
+        "On-page SEO"
+      ],
+      "highlights": [
+        "Custom themes & plugins",
+        "Client-aligned website layouts",
+        "Brand-consistent digital assets"
+      ]
+    },
+    {
+      "id": "campaigns",
+      "name": "Brands, in every dimension",
+      "category": "Visual design · Dublin & India",
+      "description": "Digital and print campaign materials shaped around client briefs, with a consistent visual identity across social and marketing channels.",
+      "stack": [
+        "Graphic design",
+        "Social media",
+        "Content strategy"
+      ],
+      "highlights": [
+        "Digital & print materials",
+        "Campaign graphics",
+        "Consistent brand communication"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": "meta-intro",
+      "name": "Introduction to Front-End Development",
+      "issuer": "Meta",
+      "competencies": [
+        "Frontend foundations",
+        "Web interfaces"
+      ],
+      "color": "#6f9fff"
+    },
+    {
+      "id": "meta-js",
+      "name": "Programming with JavaScript",
+      "issuer": "Meta",
+      "competencies": [
+        "JavaScript",
+        "Programming fundamentals"
+      ],
+      "color": "#f0ce69"
+    },
+    {
+      "id": "meta-git",
+      "name": "Version Control",
+      "issuer": "Meta",
+      "competencies": [
+        "Git",
+        "Version control"
+      ],
+      "color": "#f88470"
+    },
+    {
+      "id": "meta-html",
+      "name": "HTML and CSS in Depth",
+      "issuer": "Meta",
+      "competencies": [
+        "HTML",
+        "CSS",
+        "Web layouts"
+      ],
+      "color": "#b194fa"
+    },
+    {
+      "id": "meta-react",
+      "name": "React Basics",
+      "issuer": "Meta",
+      "competencies": [
+        "React",
+        "Components"
+      ],
+      "color": "#71d9ed"
+    },
+    {
+      "id": "meta-advanced",
+      "name": "Advanced React",
+      "issuer": "Meta",
+      "competencies": [
+        "React",
+        "Frontend development"
+      ],
+      "color": "#eb6985"
+    }
+  ],
+  "socials": [
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/ashwinaisc"
+    },
+    {
+      "label": "Behance",
+      "url": "https://www.behance.net/ashwinaisc"
+    },
+    {
+      "label": "Portfolio",
+      "url": "https://www.aisthedesigner.com"
+    }
+  ]
+}

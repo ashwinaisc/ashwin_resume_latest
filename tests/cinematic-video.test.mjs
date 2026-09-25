@@ -6,7 +6,7 @@ import ts from 'typescript';
 
 // Execute the real component effect with a deterministic animation clock and
 // a media element that models asynchronous seeking. No browser is automated.
-function setup(prefersReducedMotion = false) {
+function setup({ prefersReducedMotion = false, coarsePointer = false } = {}) {
   const effects = [], frames = new Map(), windowListeners = new Map(), videoListeners = new Map();
   let frameId = 0, playhead = 0, rejectNextSeek = false;
   const writes = [];
@@ -28,6 +28,7 @@ function setup(prefersReducedMotion = false) {
     removeEventListener(name) { windowListeners.delete(name); },
   };
   const media = { matches: prefersReducedMotion, addEventListener() {}, removeEventListener() {} };
+  const touchMedia = { matches: coarsePointer, addEventListener() {}, removeEventListener() {} };
   const jsx = (tag, props) => {
     if (props?.ref) props.ref.current = tag === 'video' ? video : { style: {} };
     return { tag, props };
@@ -45,8 +46,8 @@ function setup(prefersReducedMotion = false) {
       if (name === '@/lib/motion') return { clamp: (value, min, max) => Math.min(max, Math.max(min, value)) };
       throw new Error(`Unexpected dependency: ${name}`);
     },
-    window: windowMock, document: { hidden: false, documentElement: { scrollHeight: 4800 } },
-    matchMedia: () => media,
+    window: windowMock, document: { hidden: false, documentElement: { scrollHeight: 4800 }, getElementById: () => null },
+    matchMedia: query => query.includes('pointer: coarse') ? touchMedia : media,
     requestAnimationFrame(fn) { const id = ++frameId; frames.set(id, fn); return id; },
     cancelAnimationFrame(id) { frames.delete(id); },
     ResizeObserver: class { observe() {} disconnect() {} },
@@ -59,8 +60,6 @@ function setup(prefersReducedMotion = false) {
     frame() { const pending = [...frames.values()]; frames.clear(); pending.forEach(fn => fn()); },
     loaded() { video.duration = 10; video.readyState = 1; videoListeners.get('loadedmetadata')(); video.seeking = false; },
     move(x, type = 'pointermove', pointerType = 'mouse', y = 400) { windowListeners.get(type)({ clientX: x, clientY: y, ...(type === 'pointermove' ? { pointerType } : {}) }); },
-    touchStart(x, y) { windowListeners.get('pointerdown')({ clientX: x, clientY: y, pointerType: 'touch' }); },
-    touchEnd() { windowListeners.get('pointerup')({ pointerType: 'touch' }); },
     scroll(y) { windowMock.scrollY = y; windowListeners.get('scroll')(); },
     decode() { video.seeking = false; },
     reject() { rejectNextSeek = true; },
@@ -131,23 +130,19 @@ test('failed seeks recover and pause/resume keeps one RAF loop', () => {
   assert.equal(engine.videoListeners.size, 0);
 });
 
-test('touch horizontal drags scrub while vertical gestures leave scrolling in control', () => {
-  const engine = setup(); engine.loaded();
-  engine.touchStart(100, 400);
-  engine.move(1000, 'pointermove', 'touch', 405);
+test('mobile vertical scroll scrubs the full clip within the opening scene', () => {
+  const engine = setup({ coarsePointer: true }); engine.loaded();
+  engine.move(1000, 'pointermove', 'touch', 400);
+  engine.frame();
+  assert.equal(engine.video.currentTime, 0, 'touch movement alone must not scrub');
+  engine.scroll(1000);
   for (let i = 0; i < 120; i++) { engine.decode(); engine.frame(); }
   assert(Math.abs(engine.video.currentTime - 9.96) < 0.002);
-
-  engine.touchStart(900, 400);
-  engine.move(900, 'pointermove', 'touch', 250);
-  engine.scroll(2000);
-  for (let i = 0; i < 120; i++) { engine.decode(); engine.frame(); }
-  assert(Math.abs(engine.video.currentTime - 4.98) < 0.002);
-  engine.touchEnd(); engine.dispose();
+  engine.dispose();
 });
 
 test('reduced-motion preference still allows scroll scrubbing without parallax', () => {
-  const engine = setup(true); engine.loaded(); engine.scroll(4000);
+  const engine = setup({ prefersReducedMotion: true }); engine.loaded(); engine.scroll(4000);
   for (let i = 0; i < 120; i++) { engine.decode(); engine.frame(); }
   assert(Math.abs(engine.video.currentTime - 9.96) < 0.002);
   assert.equal(engine.video.paused, true);

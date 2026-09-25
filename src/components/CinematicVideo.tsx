@@ -19,8 +19,8 @@ export default function CinematicVideo() {
     const video = videoRef.current;
     if (!video) return;
     const media = matchMedia('(prefers-reduced-motion: reduce)');
+    const touchMedia = matchMedia('(pointer: coarse), (hover: none)');
     let duration = 0, scroll = 0, progress = 0, dx = 0, dy = 0, tiltX = 0, tiltY = 0;
-    let touchStartX = 0, touchStartY = 0, touchAxis: 'pending' | 'horizontal' | 'vertical' = 'pending';
     let frame = 0;
     readyRef.current = false;
     currentRef.current = 0;
@@ -35,23 +35,19 @@ export default function CinematicVideo() {
     };
     const onScroll = () => {
       measureScroll();
-      // The latest input controls the playhead, so either interaction can reach
-      // the full clip. No primary-pointer media query can disable a real mouse.
-      progress = scroll;
+      // Phones have no cursor, so map ordinary vertical scrolling across the
+      // opening scene instead of spreading a short clip over the whole site.
+      // This makes the frame change visible during the user's first few swipes.
+      const hero = document.getElementById('home');
+      const mobileRange = Math.max(window.innerHeight * 1.25, hero?.offsetHeight ?? 0);
+      progress = touchMedia.matches
+        ? clamp(window.scrollY / mobileRange, 0, 1)
+        : scroll;
       updateTarget();
     };
     const onMove = (event: MouseEvent | PointerEvent) => {
       if (pausedRef.current) return;
-      // Touchscreens do not emit mousemove. Let a horizontal finger movement
-      // scrub the clip as well, while leaving vertical movement to native scroll.
-      if ('pointerType' in event && event.pointerType !== 'mouse' && event.pointerType !== 'touch') return;
-      if ('pointerType' in event && event.pointerType === 'touch') {
-        const moveX = event.clientX - touchStartX, moveY = event.clientY - touchStartY;
-        if (touchAxis === 'pending' && Math.max(Math.abs(moveX), Math.abs(moveY)) >= 8) {
-          touchAxis = Math.abs(moveX) > Math.abs(moveY) ? 'horizontal' : 'vertical';
-        }
-        if (touchAxis !== 'horizontal') return;
-      }
+      if ('pointerType' in event && event.pointerType !== 'mouse') return;
       const mouseX = clamp(event.clientX / window.innerWidth, 0, 1);
       const y = clamp(event.clientY / window.innerHeight, 0, 1);
       progress = mouseX;
@@ -60,14 +56,6 @@ export default function CinematicVideo() {
         if (glowRef.current) glowRef.current.style.background = `radial-gradient(ellipse at ${mouseX * 100}% ${y * 100}%, rgba(196,0,36,0.18), transparent 65%)`;
       }
       updateTarget();
-    };
-    const onPointerDown = (event: PointerEvent) => {
-      if (event.pointerType === 'touch') {
-        touchStartX = event.clientX; touchStartY = event.clientY; touchAxis = 'pending';
-      }
-    };
-    const onPointerEnd = (event: PointerEvent) => {
-      if (event.pointerType === 'touch') touchAxis = 'pending';
     };
     const initialize = () => {
       if (!Number.isFinite(video.duration) || video.duration <= 0) return;
@@ -111,9 +99,6 @@ export default function CinematicVideo() {
     video.addEventListener('loadedmetadata', initialize); video.addEventListener('canplay', initialize);
     video.addEventListener('play', ensurePaused);
     window.addEventListener('pointermove', onMove, { passive: true });
-    window.addEventListener('pointerdown', onPointerDown, { passive: true });
-    window.addEventListener('pointerup', onPointerEnd, { passive: true });
-    window.addEventListener('pointercancel', onPointerEnd, { passive: true });
     window.addEventListener('mousemove', onMove, { passive: true });
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize); media.addEventListener('change', onPreference);
@@ -122,9 +107,7 @@ export default function CinematicVideo() {
       cancelAnimationFrame(frame); resizeObserver.disconnect();
       video.removeEventListener('loadedmetadata', initialize); video.removeEventListener('canplay', initialize);
       video.removeEventListener('play', ensurePaused);
-      window.removeEventListener('pointermove', onMove); window.removeEventListener('pointerdown', onPointerDown);
-      window.removeEventListener('pointerup', onPointerEnd); window.removeEventListener('pointercancel', onPointerEnd);
-      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('pointermove', onMove); window.removeEventListener('scroll', onScroll);
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('resize', onResize); media.removeEventListener('change', onPreference);
     };

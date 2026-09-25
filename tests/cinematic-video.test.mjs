@@ -6,7 +6,7 @@ import ts from 'typescript';
 
 // Execute the real component effect with a deterministic animation clock and
 // a media element that models asynchronous seeking. No browser is automated.
-function setup() {
+function setup(prefersReducedMotion = false) {
   const effects = [], frames = new Map(), windowListeners = new Map(), videoListeners = new Map();
   let frameId = 0, playhead = 0, rejectNextSeek = false;
   const writes = [];
@@ -27,7 +27,7 @@ function setup() {
     addEventListener(name, fn) { windowListeners.set(name, fn); },
     removeEventListener(name) { windowListeners.delete(name); },
   };
-  const media = { matches: false, addEventListener() {}, removeEventListener() {} };
+  const media = { matches: prefersReducedMotion, addEventListener() {}, removeEventListener() {} };
   const jsx = (tag, props) => {
     if (props?.ref) props.ref.current = tag === 'video' ? video : { style: {} };
     return { tag, props };
@@ -58,7 +58,9 @@ function setup() {
     video, writes, window: windowMock, windowListeners, videoListeners, frames,
     frame() { const pending = [...frames.values()]; frames.clear(); pending.forEach(fn => fn()); },
     loaded() { video.duration = 10; video.readyState = 1; videoListeners.get('loadedmetadata')(); video.seeking = false; },
-    move(x, type = 'pointermove', pointerType = 'mouse') { windowListeners.get(type)({ clientX: x, clientY: 400, ...(type === 'pointermove' ? { pointerType } : {}) }); },
+    move(x, type = 'pointermove', pointerType = 'mouse', y = 400) { windowListeners.get(type)({ clientX: x, clientY: y, ...(type === 'pointermove' ? { pointerType } : {}) }); },
+    touchStart(x, y) { windowListeners.get('pointerdown')({ clientX: x, clientY: y, pointerType: 'touch' }); },
+    touchEnd() { windowListeners.get('pointerup')({ pointerType: 'touch' }); },
     scroll(y) { windowMock.scrollY = y; windowListeners.get('scroll')(); },
     decode() { video.seeking = false; },
     reject() { rejectNextSeek = true; },
@@ -127,4 +129,27 @@ test('failed seeks recover and pause/resume keeps one RAF loop', () => {
   assert.equal(engine.frames.size, 0);
   assert.equal(engine.windowListeners.size, 0);
   assert.equal(engine.videoListeners.size, 0);
+});
+
+test('touch horizontal drags scrub while vertical gestures leave scrolling in control', () => {
+  const engine = setup(); engine.loaded();
+  engine.touchStart(100, 400);
+  engine.move(1000, 'pointermove', 'touch', 405);
+  for (let i = 0; i < 120; i++) { engine.decode(); engine.frame(); }
+  assert(Math.abs(engine.video.currentTime - 9.96) < 0.002);
+
+  engine.touchStart(900, 400);
+  engine.move(900, 'pointermove', 'touch', 250);
+  engine.scroll(2000);
+  for (let i = 0; i < 120; i++) { engine.decode(); engine.frame(); }
+  assert(Math.abs(engine.video.currentTime - 4.98) < 0.002);
+  engine.touchEnd(); engine.dispose();
+});
+
+test('reduced-motion preference still allows scroll scrubbing without parallax', () => {
+  const engine = setup(true); engine.loaded(); engine.scroll(4000);
+  for (let i = 0; i < 120; i++) { engine.decode(); engine.frame(); }
+  assert(Math.abs(engine.video.currentTime - 9.96) < 0.002);
+  assert.equal(engine.video.paused, true);
+  engine.dispose();
 });

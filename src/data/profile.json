@@ -251,7 +251,11 @@
         "Frontend foundations",
         "Web interfaces"
       ],
-      "color": "#6f9fff"
+      "color": "#6f9fff",
+      "issued": "February 27, 2024",
+      "credentialId": "L3SU8VJFYTRH",
+      "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/L3SU8VJFYTRH",
+      "verifiedAt": "2026-10-28"
     },
     {
       "id": "meta-js",
@@ -261,7 +265,11 @@
         "JavaScript",
         "Programming fundamentals"
       ],
-      "color": "#f0ce69"
+      "color": "#f0ce69",
+      "issued": "March 25, 2024",
+      "credentialId": "3SJQL39P9UN7",
+      "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/3SJQL39P9UN7",
+      "verifiedAt": "2026-10-28"
     },
     {
       "id": "meta-git",
@@ -271,7 +279,11 @@
         "Git",
         "Version control"
       ],
-      "color": "#f88470"
+      "color": "#f88470",
+      "issued": "August 9, 2024",
+      "credentialId": "AC38H80P5ZSA",
+      "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/AC38H80P5ZSA",
+      "verifiedAt": "2026-10-28"
     },
     {
       "id": "meta-html",
@@ -282,7 +294,11 @@
         "CSS",
         "Web layouts"
       ],
-      "color": "#b194fa"
+      "color": "#b194fa",
+      "issued": "January 12, 2025",
+      "credentialId": "9RAS9XZ1ICO6",
+      "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/9RAS9XZ1ICO6",
+      "verifiedAt": "2026-10-28"
     },
     {
       "id": "meta-react",
@@ -292,7 +308,11 @@
         "React",
         "Components"
       ],
-      "color": "#71d9ed"
+      "color": "#71d9ed",
+      "issued": "February 27, 2025",
+      "credentialId": "NGNNQ7L906K2",
+      "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/NGNNQ7L906K2",
+      "verifiedAt": "2026-10-28"
     },
     {
       "id": "meta-advanced",
@@ -302,7 +322,11 @@
         "React",
         "Frontend development"
       ],
-      "color": "#eb6985"
+      "color": "#eb6985",
+      "issued": "March 6, 2025",
+      "credentialId": "5G5OZPSFIKFS",
+      "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/5G5OZPSFIKFS",
+      "verifiedAt": "2026-10-28"
     }
   ],
   "socials": [

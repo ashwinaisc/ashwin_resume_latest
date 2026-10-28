@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
-const links = [['about', 'About'], ['projects', 'Work'], ['experience', 'Experience'], ['skills', 'Skills']];
+const links = [['about', 'About'], ['skills', 'Skills'], ['projects', 'Work'], ['experience', 'Experience'], ['certifications', 'Learning']];
 
 export default function Navbar({ firstName }: { firstName: string }) {
   const [active, setActive] = useState('');
@@ -37,7 +37,7 @@ export default function Navbar({ firstName }: { firstName: string }) {
     <div className="nav-links">{links.map(([id, label]) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined}>
       {active === id && <motion.span className="nav-pill" layoutId="nav-pill" transition={reduced ? { duration: 0 } : { type: 'spring', stiffness: 360, damping: 32 }} />}<span>{label}</span>
     </a>)}</div>
-    <a href="#contact" className="nav-contact" data-magnetic>Let’s talk <ArrowUpRight size={15} /></a>
+    <a href="#contact" className="nav-contact" data-magnetic>Contact <ArrowUpRight size={15} /></a>
     <button ref={buttonRef} className="menu-toggle" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
     {open && <div id="mobile-nav" ref={drawerRef} className="mobile-nav">{[...links, ['contact', 'Contact']].map(([id, label], i) => <a href={`#${id}`} key={id} onClick={() => setOpen(false)}><span>0{i + 1}</span>{label}<ArrowUpRight size={20} /></a>)}</div>}
   </nav></header>;

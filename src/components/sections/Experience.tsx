@@ -6,7 +6,7 @@ import type { Milestone } from '@/data/types';
 import SectionHeading from '@/components/SectionHeading';
 const filters = [{ id: 'all', label: 'All' }, { id: 'work', label: 'Work Experience' }, { id: 'education', label: 'Education' }];
 export default function Experience({ journey }: { journey: Milestone[] }) {
-  const [filter, setFilter] = useState('work');
+  const [filter, setFilter] = useState('all');
   const reduced = useReducedMotion();
   const [expanded, setExpanded] = useState(false);
   const items = [...journey].sort((a, b) => b.sortDate.localeCompare(a.sortDate)).filter(item => filter === 'all' || item.kind === filter);

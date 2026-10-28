@@ -216,3 +216,65 @@ main, .site-footer { position: relative; z-index: 1; }
   .cursor-dot, .cursor-ring, .motion-switch { display: none; }.cine-scene, .project-card, .magnetic { transform: none !important; }
 }
 
+
+/* Recruiter-focused hierarchy and readable supporting content. */
+.hero { min-height: max(720px, 90svh); }
+.hero h1 { max-width: 20ch; font-size: clamp(42px, 5.8vw, 88px); }
+.hero h1 > span { white-space: normal; }
+.hero-intro { font: 500 18px/1.5 var(--sans); letter-spacing: 0; }
+.hero-description { font-size: 17px; max-width: 540px; }
+.hero-focus { display: flex; flex-wrap: wrap; gap: 10px 24px; padding: 0; margin: 30px 0 0; list-style: none; color: #c6bdc2; font-size: 14px; }
+.hero-focus li::before { content: '↗'; color: #ff637e; margin-right: 8px; }
+.hero-eyebrow, .eyebrow, .button, .text-link, .availability { font-size: 12px; }
+.heading-row p, .about-copy > p:not(.large-copy), .strengths p, .project-content > p, .contact-copy > p { font-size: 16px; }
+.work-intro { display: flex; justify-content: space-between; align-items: center; gap: 28px; margin-bottom: 32px; }
+.work-intro p { max-width: 500px; color: #c6bdc2; font-size: 16px; }
+.work-intro .button { flex-shrink: 0; }
+.practice-card { padding-top: 24px; }
+.practice-index { display: block; padding: 0 24px; font: 500 40px/1 var(--heading); color: #ff637e; }
+.project-content .eyebrow, .tag-row > span, .work-context { font-size: 12px; }
+.project-content { padding: 24px; }
+.project-highlights { font-size: 14px; }
+.contribution-label { margin-top: 24px; font-size: 14px; }
+.work-context { color: #bdb2ba; margin-top: 24px; line-height: 1.8; }
+.milestone ul, .milestone h4, .milestone-date, .milestone-location, .skill-pills span { font-size: 14px; }
+.milestone-top, .form-note, .form-header, .terminal-bar, .terminal-comment, .terminal-skills, .terminal dd, .skill-tabs button { font-size: 12px; }
+.terminal-body, .contact-form label, .contact-form input, .contact-form textarea { font-size: 16px; }
+.skill-tabs button { min-height: 44px; }
+.learning-details { border: 1px solid var(--line); border-radius: 8px; padding: 24px; background: #0b090b; }
+.learning-details summary { cursor: pointer; padding: 8px 0; font-size: 18px; }
+.learning-details summary span { margin-left: 12px; font-size: 14px; color: #bdb2ba; }
+.learning-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; list-style: none; padding: 24px 0 0; }
+.learning-list h3 { font-size: 16px; }.learning-list p { font-size: 14px; color: #bdb2ba; }
+@media (max-width: 900px) { .work-intro { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 520px) {
+  .hero { padding: 125px 22px 115px; min-height: 740px; }
+  .hero h1 { font-size: clamp(38px, 9vw, 48px); }
+  .hero-intro { font-size: 16px; }.hero-description { font-size: 16px; max-width: none; }
+  .hero-actions { align-items: stretch; }.hero-actions .button { font-size: 12px; width: 100%; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: .04em; }
+  .hero-footer { align-items: flex-start; flex-direction: column; gap: 12px; font-size: 11px; }
+  .hero-footer .availability { font-size: 11px; }
+  .hero-focus { font-size: 13px; gap: 8px; flex-direction: column; }
+  .heading-row p, .project-content > p, .about-copy > p:not(.large-copy) { font-size: 16px; }
+  .project-content .eyebrow, .milestone-top, .motion-switch, .gallery-toolbar, .spoken-languages .mono { font-size: 12px; }
+  .milestone ul, .milestone h4, .milestone-date, .filter-pills button, .skill-pills span { font-size: 14px; }
+  .filter-pills { flex-wrap: wrap; }.filter-pills button { white-space: normal; }
+  .learning-list { grid-template-columns: 1fr; }.work-intro .button { width: 100%; }
+  .learning-details { padding: 18px; }.learning-details summary span { display: block; margin: 8px 0 0; }
+  .terminal dd, .terminal-bar { font-size: 12px; }.terminal dl { margin-left: 0; }
+  .email-row > a { font-size: 16px; }.social-links a, .phone-link { font-size: 14px; }
+  .site-footer p, .site-footer .text-link { font-size: 12px; }
+}
+
+.practice-card { display: block; }
+
+/* Live landing-page portfolio projects. */
+.featured-projects { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; }
+.featured-project { display: flex; flex-direction: column; }
+.project-screenshot { aspect-ratio: 16 / 9; overflow: hidden; background: #251c45; border-bottom: 1px solid var(--line); }
+.project-screenshot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.featured-project .project-content { display: flex; flex-direction: column; flex: 1; align-items: flex-start; padding: 28px; }
+.featured-project .tag-row { margin-bottom: 26px; }
+.project-live-link { margin-top: auto; }
+@media (max-width: 760px) { .featured-projects { grid-template-columns: 1fr; }.featured-project .project-content { padding: 24px; }.project-live-link { width: 100%; } }

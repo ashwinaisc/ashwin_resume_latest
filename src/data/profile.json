@@ -206,55 +206,40 @@
   ],
   "projects": [
     {
-      "id": "responsive-interfaces",
-      "name": "Interfaces with intent",
-      "category": "UI/UX · Techbox Solutions",
-      "description": "Wireframes and interactive prototypes translated into responsive websites during my UI/UX role at Techbox Solutions.",
+      "id": "my-health-school-journey",
+      "name": "My Health School — Journey",
+      "category": "Landing page · My Health School",
+      "description": "A Tamil-led landing page bringing together video stories, programme information and an assessment enquiry form.",
       "stack": [
-        "Figma",
-        "Adobe XD",
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Bootstrap"
+        "Landing page",
+        "Tamil-led content",
+        "Video storytelling"
       ],
       "highlights": [
-        "Interactive prototypes",
-        "Responsive website implementation",
-        "Search-aware content collaboration"
-      ]
+        "Created the landing page",
+        "Video testimonials and patient-story sections",
+        "Assessment enquiry form and WhatsApp contact"
+      ],
+      "live": "https://journey.myhealthschool.in/",
+      "image": "/projects/journey.png"
     },
     {
-      "id": "wordpress",
-      "name": "From layout to launch",
-      "category": "Web design · Winnersoft IT Solutions",
-      "description": "Client-led website layouts, custom WordPress themes and plugins, and on-page SEO improvements.",
+      "id": "my-health-school-care",
+      "name": "My Health School — Care",
+      "category": "Landing page · Doctor Farmer",
+      "description": "An assessment-focused landing page connecting the Doctor Farmer brand, community stories and a clear starting point for health enquiries.",
       "stack": [
-        "WordPress",
-        "UI design",
-        "On-page SEO"
+        "Landing page",
+        "Assessment journey",
+        "Visual storytelling"
       ],
       "highlights": [
-        "Custom themes & plugins",
-        "Client-aligned website layouts",
-        "Brand-consistent digital assets"
-      ]
-    },
-    {
-      "id": "campaigns",
-      "name": "Brands, in every dimension",
-      "category": "Visual design · Dublin & India",
-      "description": "Digital and print campaign materials shaped around client briefs, with a consistent visual identity across social and marketing channels.",
-      "stack": [
-        "Graphic design",
-        "Social media",
-        "Content strategy"
+        "Created the landing page",
+        "Assessment roadmap and enquiry entry points",
+        "Community stories, event imagery and press sections"
       ],
-      "highlights": [
-        "Digital & print materials",
-        "Campaign graphics",
-        "Consistent brand communication"
-      ]
+      "live": "https://care.myhealthschool.in/",
+      "image": "/projects/care.png"
     }
   ],
   "certifications": [

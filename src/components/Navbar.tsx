@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
-const links = [['about', 'About'], ['projects', 'Work'], ['experience', 'Journey'], ['certifications', 'Credentials'], ['skills', 'Skills']];
+const links = [['about', 'About'], ['projects', 'Work'], ['experience', 'Experience'], ['certifications', 'Learning']];
 
 export default function Navbar({ firstName }: { firstName: string }) {
   const [active, setActive] = useState('');

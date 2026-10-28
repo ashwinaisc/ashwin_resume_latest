@@ -4,11 +4,13 @@ import { profile } from '@/data/profile';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: `${profile.name} — Design × Development`,
+  metadataBase: new URL('https://www.aisthedesigner.com'),
+  alternates: { canonical: '/' },
+  title: `${profile.name} — Digital Designer & Web UI`,
   description: 'UI/UX design, graphic design, frontend development and digital marketing. Explore Ashwin Issac Shaji’s work, experience and creative practice.',
   authors: [{ name: profile.name }],
-  openGraph: { title: `${profile.name} — Design × Development`, description: profile.bio, type: 'website', locale: 'en_IN' },
-  twitter: { card: 'summary', title: `${profile.name} — Design × Development`, description: profile.bio },
+  openGraph: { title: `${profile.name} — Digital Designer & Web UI`, description: profile.bio, type: 'website', locale: 'en_IN' },
+  twitter: { card: 'summary', title: `${profile.name} — Digital Designer & Web UI`, description: profile.bio },
   icons: { icon: '/icon.svg' },
 };
 

@@ -1,3 +1,15 @@
+## Portfolio improvement preview — 28 October 2026
+
+The current preview prioritizes Digital Designer / Web UI positioning. Work now follows the hero, with an explicit Behance link and responsibility summaries. No client screenshots, outcomes or case studies have been invented; individual project evidence is still needed.
+
+Hero counters were replaced with focus areas. Experience initially shows three work roles, with filters and full-history expansion. The former rotating course gallery is now a native expandable course list. Mobile supporting text has been enlarged, contact drafting is labelled explicitly, and canonical metadata is included. The background video is unchanged in this pass.
+
+Restore point: `C:/Users/LENOVO/Documents/ChatGPT/personal/restore-points/portfolio-before-improvements_2026-10-28_120613_IST/portfolio-complete.zip`. Its sibling RESTORE.txt contains recovery instructions. Changes are local; no hosting deployment has been performed.
+
+The original implementation notes below describe the pre-improvement version; gallery/counter descriptions no longer apply to the current preview.
+
+---
+
 # Ashwin — Design × Development
 
 A complete Next.js 14 App Router portfolio with TypeScript, Tailwind, Framer Motion and the requested `@studio-freight/lenis` package. All résumé content is in `src/data/profile.json`; the original PDF and supplied 10.005-second video are included in `public/`.
@@ -63,4 +75,8 @@ Four Google Fonts load with `display=swap` from the App Router root layout; syst
 
 Security release: https://vercel.com/changelog/next-js-may-2026-security-release
 
+
+
+## Live project cards — 28 October 2026
+Journey and Care now replace the responsibility-only cards, with captured homepage screenshots and live links. Project authorship was confirmed by Ashwin. No conversion metrics or medical outcomes are claimed in the portfolio descriptions. This editable copy lives in the personal/portfolio folder because the original resume folder was read-only during this session. Earlier notes about missing projects are superseded by this section.
 
